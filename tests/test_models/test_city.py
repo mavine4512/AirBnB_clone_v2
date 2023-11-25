@@ -1,70 +1,29 @@
-#!/usr/bin/python3
-"""Unittest for city class"""
-import unittest
-import os
-import pep8
+!/usr/bin/python3
+""" """
+from tests.test_models.test_base_model import test_basemodel
 from models.city import City
-from models.base_model import BaseModel
+import os
 
 
-class TestCity(unittest.TestCase):
-    """Tests for City class"""
-    @classmethod
-    def setUpClass(cls):
-        cls.city1 = City()
-        cls.city1.name = "Nairobi"
-        cls.city1.state_id = "NB"
-    @classmethod
-    def tearDownClass(cls):
-        """Tears down class"""
-        del cls.city1
-        try:
-            os.remove("file.json")
-        except FileNotFoundError:
-            pass
+class test_City(test_basemodel):
+    """ """
 
-    def test_style_check(self):
-        """Tests styles"""
-        style = pep8.StyleGuide(quiet=True)
-        p = style.check_files(['models/city.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")
-        
-    def test_is_subclass(self):
-        """
-        Tests subclass
-        """
-        self.assertTrue(issubclass(self.city1.__class__, BaseModel), True)
+    def __init__(self, *args, **kwargs):
+        """ """
+        super().__init__(*args, **kwargs)
+        self.name = "City"
+        self.value = City
 
-    def test_checking_for_functions(self):
-        """Checks for functions"""
-        self.assertIsNotNone(City.__doc__)
+    def test_state_id(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.state_id), str if
+                        os.getenv('HBNB_TYPE_STORAGE') != 'db' else
+                        type(None))
 
-    def test_has_attributes(self):
-        """Tests attributes"""
-        self.assertTrue('id' in self.city1.__dict__)
-        self.assertTrue('created_at' in self.city1.__dict__)
-        self.assertTrue('updated_at' in self.city1.__dict__)
-        self.assertTrue('state_id' in self.city1.__dict__)
-        self.assertTrue('name' in self.city1.__dict__)
-
-    def test_attributes_are_strings(self):
-        """
-        Tests attributes that are strings
-        """
-        self.assertEqual(type(self.city1.name), str)
-        self.assertEqual(type(self.city1.state_id), str)
-
-    def test_save(self):
-        """Saves tests"""
-        self.city1.save()
-        self.assertNotEqual(self.city1.created_at, self.city1.updated_at)
-
-    def test_to_dict(self):
-        """
-        Tests the dictionary
-        """
-        self.assertEqual('to_dict' in dir(self.city1), True)
-
-
-if __name__ == "__main__":
-    unittest.main()
+    def test_name(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.name), str if
+                         os.getenv('HBNB_TYPE_STORAGE') != 'db' else
+                         type(None)))
