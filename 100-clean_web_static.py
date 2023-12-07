@@ -1,8 +1,10 @@
 #!usr/bin/python3
+""" deletes out-of-date archives, using the function do_clean
+"""
 import os
 from fabric.api import *
 
-env.hosts = ['52.86.139.197', '100.24.74.142']
+env.hosts = ['34.207.62.179', '3.83.227.100']
 
 
 def do_clean(number=0):
