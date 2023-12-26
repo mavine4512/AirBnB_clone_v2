@@ -31,5 +31,5 @@ def pythonText(text="is cool"):
     """Display Python follow by the valus of the text variable"""
     return "Python {}".format(format_text(text))
 
-if __name__ == "__main__"
-app.run(host="0.0.0.0", post=5000, debug=None)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=None)
