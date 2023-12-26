@@ -18,6 +18,6 @@ def teardown(self):
     """Methodto remove current SQLalchemy Session"""
     storage.close()
 
-if __name__ == "__main__"
-app.run(host="0.0.0.0", post=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
 

@@ -23,15 +23,22 @@ class FileStorage:
                   "Amenity": Amenity, "City": City, "Review": Review,
                   "State": State}
 
-    def all(self):
+    def all(self, cls=None):
         """A function that returns all dictionary __objects"""
-        return self.__objects
+        if cls is None:
+            return self.__objects
+        elif type(cls):
+            return {k: v for k, v in self.__objects.items()
+                    if v.__class__.__name__ == cls}
+        else:
+            return {k: v for k, v in self.__objects.items()
+                    if v.__class__.__name__ == cls}
 
     def new(self, obj):
         """Creates a new key for the object"""
-        if obj:
-            key = '{}.{}'.format(obj.__class__.__name__, obj.id)
-            self.__objects[key] = obj
+        self.__objects.update(
+                {obj.to_dict()['__class'] + '.' + obj.id: obj}
+                )
 
     def save(self):
         """A function that saves objects dictionary to JSON file"""
