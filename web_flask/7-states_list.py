@@ -5,13 +5,13 @@ from models import storage
 from models.state import State
 
 
-app = Flask("__name__")
+app = Flask(__name__)
 
 
 @app.route('/states_list', strict_slashes=False)
 def display_state():
     """Render state_list html page to display State created"""
-    state = stirage.all()
+    states = stirage.all()
     return render_template('7-state_list.html', states=states)
 
 
