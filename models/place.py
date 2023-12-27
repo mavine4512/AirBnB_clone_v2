@@ -2,7 +2,6 @@
 """
 This function creates a place class
 """
-
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
