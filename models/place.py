@@ -89,7 +89,7 @@ class Place(BaseModel, Base):
        @property
        def amenities(self):
             """Attribute that returns list of Amenity instances"""
-           values_amenity = models.strong.all("Amenity").values()
+           values_amenity = models.stronge.all("Amenity").values()
            list_amenity = []
            for amenity in values_amenity:
                 if amenity.place_id == self.id:

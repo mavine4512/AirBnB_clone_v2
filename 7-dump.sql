@@ -1,11 +1,11 @@
---MySQL dump 10.13 Distrib 5.7.8-rc, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.8-rc, for Linux (x86_64)
 --
---Host: localhost  Database: hbnb_dev_db
--- ---------------------------------------------------------------
---Server version   5.7.8-rc
+-- Host: localhost    Database: hbnb_dev_db
+-- ------------------------------------------------------
+-- Server version	5.7.8-rc
 
-/*!40101 SET @OLD_CHARACTER_SET=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
@@ -28,6 +28,9 @@ FLUSH PRIVILEGES;
 
 USE hbnb_dev_db;
 
+--
+-- Table structure for table `cities`
+--
 
 DROP TABLE IF EXISTS `cities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -44,6 +47,9 @@ CREATE TABLE `cities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `cities`
+--
 
 LOCK TABLES `cities` WRITE;
 /*!40000 ALTER TABLE `cities` DISABLE KEYS */;
@@ -51,6 +57,9 @@ INSERT INTO `cities` VALUES ('521a55f4-7d82-47d9-b54c-a76916479545','2017-03-25 
 /*!40000 ALTER TABLE `cities` ENABLE KEYS */;
 UNLOCK TABLES;
 
+--
+-- Table structure for table `states`
+--
 
 DROP TABLE IF EXISTS `states`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
