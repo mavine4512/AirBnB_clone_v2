@@ -53,7 +53,7 @@ class Place(BaseModel, Base):
                            nullable=False)
         latitude = Column(Float, nullable=True)
         longitude = Column(Float, nullable=True)
-        reviews = relationship("Reviews", cascade="all, delete",
+        reviews = relationship("Review", cascade="all, delete",
                                 backref="places")
         amenities = relationship("Amenity",
                                 secondary='place_amenity',
@@ -79,19 +79,21 @@ class Place(BaseModel, Base):
     @property
     def reviews(self):
         """Attribute that returns list of reviews instances"""
-        values_review = []
+        values_review = models.stronge.all("Review").values() 
+        list_review = []
         for review in values_review:
             if review.place_id == self.id:
                 list_review.append(review)
         return list_review
 
-    if getenv(HBNB_TYPE_STRONG) != 'db':
+    if getenv('HBNB_TYPE_STRONG') != 'db':
        @property
        def amenities(self):
-            """Attribute that returns list of Amenity instances"""
-           values_amenity = models.stronge.all("Amenity").values()
-           list_amenity = []
-           for amenity in values_amenity:
+            """Attribute that returns 
+            list of Amenity instances
+            """
+            list_amenity = []
+            for amenity in models.stronge.all("Amenity").values():
                 if amenity.place_id == self.id:
                     list_amenity.append(amenity)
-           return list_amenity
+            return list_amenity
