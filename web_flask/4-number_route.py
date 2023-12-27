@@ -13,7 +13,6 @@ def format_text(text):
     return text.replace("_", " ")
 
 
-
 @app.route('/', strict_slashes=False)
 def hello():
     """Return a given string"""
