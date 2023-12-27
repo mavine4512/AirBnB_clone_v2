@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Updating this module"""
-
 import os
 
 storage_type = os.getenv('HBNB_TYPE_STORAGE')
