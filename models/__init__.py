@@ -2,7 +2,9 @@
 """Updating this module"""
 import os
 
+
 storage_type = os.getenv('HBNB_TYPE_STORAGE')
+
 
 if storage_type == 'db':
     from models.engine.db_storage import DBStorage
@@ -10,5 +12,4 @@ if storage_type == 'db':
 else:
     from models.engine.file_storage import FileStorage
     storage = FileStorage()
-
 storage.reload()
